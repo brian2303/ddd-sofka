@@ -2,20 +2,29 @@ package co.com.sofka.dddsofka.domain.solicitante.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.Objects;
+import java.time.format.DateTimeFormatter;
 
-public class FechaFinSancion implements ValueObject<LocalDate> {
+public class FechaFinSancion implements ValueObject<String> {
 
-    LocalDate fechaFinSancion;
+    private final LocalDate fechaFinSancion;
+    private final String format;
 
-    public FechaFinSancion(LocalDate fechaFinSancion){
-        // TODO: 22/04/21 Validar formato de fecha
-        this.fechaFinSancion = Objects.requireNonNull(fechaFinSancion);
+    public FechaFinSancion(int dia,int mes, int anio){
+        try {
+            fechaFinSancion = LocalDate.of(anio,mes,dia);
+            if (fechaFinSancion.isBefore(LocalDate.now())){
+                throw new IllegalArgumentException("La fecha de sancion no debe ser anterior a la fecha actual");
+            }
+        }catch (DateTimeException e){
+            throw new IllegalArgumentException(e.getMessage());
+        }
+        format = fechaFinSancion.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
 
     @Override
-    public LocalDate value() {
-        return fechaFinSancion;
+    public String value() {
+        return format;
     }
 }

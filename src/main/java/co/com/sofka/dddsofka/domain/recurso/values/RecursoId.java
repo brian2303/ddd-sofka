@@ -4,11 +4,14 @@ import co.com.sofka.domain.generic.Identity;
 
 public class RecursoId extends Identity {
 
-    private RecursoId(Integer id){
-        super(id.toString());
+    private RecursoId(String uid){
+        super(uid);
     }
 
-    public static RecursoId of(Integer id){
+    public RecursoId() {
+    }
+
+    public static RecursoId of(String id){
         return new RecursoId(id);
     }
 }

@@ -12,7 +12,7 @@ public class FechaDevolucion implements ValueObject<String>{
     public FechaDevolucion(int dia, int mes, int anio){
 
         try {
-            fechaDevolucion = LocalDate.of(dia, mes, anio);
+            fechaDevolucion = LocalDate.of(anio,mes,dia);
             if (fechaDevolucion.isBefore(LocalDate.now())){
                 throw new IllegalArgumentException("La fecha de devolucion no puede ser anterior a la fecha actual");
             }

@@ -10,10 +10,9 @@ public class Sancion extends Entity<SancionId> {
     protected FechaFinSancion finSancion;
     protected ReservaId origen;
 
-    public Sancion(SancionId sancionId,FechaFinSancion fechaFinSancion,ReservaId reservaId){
+    public Sancion(SancionId sancionId,FechaFinSancion fechaFinSancion){
         super(sancionId);
         this.finSancion = fechaFinSancion;
-        this.origen = reservaId;
     }
 
 }

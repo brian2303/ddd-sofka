@@ -12,7 +12,7 @@ public class FechaReserva implements ValueObject<String> {
     public FechaReserva(int dia, int mes, int anio){
 
         try {
-            fechaReserva = LocalDate.of(dia, mes, anio);
+            fechaReserva = LocalDate.of(anio,mes,dia);
             if (fechaReserva.isBefore(LocalDate.now())){
                 throw new IllegalArgumentException("La fecha de reserva no puede ser anterior a la fecha actual");
             }

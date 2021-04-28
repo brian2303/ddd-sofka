@@ -25,7 +25,7 @@ public class Recurso extends AggregateEvent<RecursoId> {
     }
 
 
-    private Recurso(RecursoId entityId) {
+    public Recurso(RecursoId entityId) {
         super(entityId);
         subscribe(new RecursoEventChange(this));
     }
