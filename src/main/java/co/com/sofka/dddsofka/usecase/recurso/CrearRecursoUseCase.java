@@ -13,7 +13,6 @@ public class CrearRecursoUseCase extends UseCase<RequestCommand<CrearRecurso>, R
 
         var command = crearRecursoRequestCommand.getCommand();
         var recurso = new Recurso(command.getRecursoId(),command.getCodigoBarras(),command.getNombreRecurso());
-
         emit().onResponse(new ResponseEvents(recurso.getUncommittedChanges()));
     }
 

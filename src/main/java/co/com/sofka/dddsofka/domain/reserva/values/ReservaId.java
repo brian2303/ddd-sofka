@@ -8,8 +8,7 @@ public class ReservaId extends Identity {
         super(uuid);
     }
 
-    public ReservaId() {
-    }
+    public ReservaId() {}
 
     public static ReservaId of(Integer id){
         return new ReservaId(id.toString());

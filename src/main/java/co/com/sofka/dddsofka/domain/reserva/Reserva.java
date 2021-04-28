@@ -26,10 +26,6 @@ public class Reserva extends AggregateEvent<ReservaId> {
         appendChange(new RecursoAgregado(recursoId)).apply();
     }
 
-    public void calcularPrioridad(){}
-
-    public void establecerEstado(){}
-
 
     public static Reserva from(ReservaId reservaId, List<DomainEvent> events){
         var reserva = new Reserva(reservaId);

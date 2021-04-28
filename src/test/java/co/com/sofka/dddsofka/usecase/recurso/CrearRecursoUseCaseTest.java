@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CrearRecursoUseCaseTest {
 
     @Test
-    void crearNuevoRecurso(){
+    void crearRecurso(){
 
         var id = RecursoId.of("swder231");
         var codigoBarras = new CodigoBarras("cxsa323r");

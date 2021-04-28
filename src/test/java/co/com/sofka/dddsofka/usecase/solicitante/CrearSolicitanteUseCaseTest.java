@@ -36,5 +36,4 @@ class CrearSolicitanteUseCaseTest {
         Assertions.assertEquals("CEDULA_CIUDADANIA-1022345021",event.getSolicitanteId().value());
         Assertions.assertEquals("Pepe Mojica",event.getNombreSolicitante().value());
     }
-
 }

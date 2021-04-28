@@ -15,23 +15,5 @@ public class SolicitanteEventChange extends EventChange {
             solicitante.activo = Boolean.TRUE;
             solicitante.sanciones = new HashMap<>();
         });
-
-        apply((SancionGenerada event) -> {
-            solicitante.activo = Boolean.FALSE;
-            solicitante.sanciones.put(
-                    event.getSancionId(),
-                    new Sancion(
-                        event.getSancionId(),
-                        event.getFechaFinSancion()
-                    )
-            );
-        });
-
-        apply((SolicitanteReactivado event) ->{
-            if (solicitante.activo){
-                throw new IllegalArgumentException("El solicitante esta activado");
-            }
-            solicitante.activo = Boolean.TRUE;
-        });
     }
 }

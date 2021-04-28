@@ -10,6 +10,8 @@ public class SolicitanteId extends Identity {
         super(tipoIdentificacion + "-" +  identificacion);
     }
 
+    public SolicitanteId() {}
+
     private SolicitanteId(String id){
         super(id);
     }
